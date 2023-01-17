@@ -21,6 +21,7 @@ import'./config/passport.js'
 // import routes
 import { router as indexRouter } from './routes/index.js'
 import { router as profileRouter } from './routes/profiles.js'
+import { router as caloriesRouter } from './routes/calories.js'
 import { router as authRouter } from './routes/auth.js'
 
 // create the express app
@@ -65,7 +66,10 @@ app.use(passDataToView)
 
 // router middleware
 app.use('/', indexRouter)
+
 app.use('/profile', profileRouter)
+
+app.use('/calories', caloriesRouter)
 
 app.use('/auth', authRouter)
 

@@ -1,15 +1,20 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<h1><%= title %></h1>
-
+<h1>Welcome <%= profile.name %></h1>
+<img src="<%= profile.avatar %> " alt="profile picture">
   
-  <div> Age:<%= profile.age%> </div>
-  <div> Height:<%= profile.height%> </div>
-  <div> Weight:<%= profile.weight%> </div>
+  <div> Age: <%= profile.age%> </div>
+  <div> Height: <%= profile.heightFt%>ft <%= profile.heightIn %>in  </div>
+  <div> Weight: <%= profile.weight%> </div>
 
 <form action="/profile/edit" method="get">
   <button type="submit">Change Personal Info</button>
+</form>
+
+<form action="/calories/<% profile._id %> " method="post">
+  <input type="number" name="calorieLimit" placeholder="Calorie Budget">
+  <button type="submit">Add Calorie Budget</button>
 </form>
 
 <%- include('../partials/footer') %>

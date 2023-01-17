@@ -2,19 +2,13 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-const calorieSchema = new Schema({
-  caloriesDay: Number,
-  caloriesWeek: Number,
-  calorieLimit: Number,
-  caloriesBurned: Number
-})
-
 const profileSchema = new Schema({
   name: String,
   avatar: String,
-  height: Number,
+  heightFt: Number,
+  heightIn: Number,
   weight: Number,
-  calories:[calorieSchema],
+  calories: {type: Schema.Types.ObjectId, ref:'Calories'},
   age: Number,
   sex: String,
   workouts: [{type: Schema.Types.ObjectId , ref: 'Workout'}],
