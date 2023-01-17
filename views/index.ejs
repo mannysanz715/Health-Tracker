@@ -3,7 +3,7 @@
 
 <main>
   <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
-  <% if (user?.profile.avatar) { console.log(user.profile.name) %>
+  <% if (user?.profile.avatar) { %>
     <div>
       <img
         src="<%= user.profile.avatar %>"
@@ -12,23 +12,15 @@
       <a href=""></a>
     </div>
   <% } %>
-  <% if (!user?.profile.age) { %>
-    <form action="/profile/<%= user?.profile._id%>" method="post">
-      <input type="number" name="height" placeholder="Enter Height">
-      <input type="number" name="weight" placeholder="Enter Weight">
-      <input type="number" name="age" placeholder="Enter Age">
-      <select name="sex" >
-        <option value="male">
-          male
-        </option>
-        <option value="female">
-          female
-        </option>
-      </select>
-      <button type="submit">Save</button>
+    
+    <form action="/profile/edit" method="get">
+      <button type="submit">Change Personal Info</button>
     </form>
-    <% } %>
-
+    <form action="/profile/<%= user?.profile._id %> " method="get">
+      <button type="submit">Go to your profile</button>
+    </form>
+    
+    
 
 </main>
 

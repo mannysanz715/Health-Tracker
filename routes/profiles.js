@@ -4,7 +4,9 @@ import * as profileCtrl from '../controllers/profiles.js'
 
 const router = Router()
 
-router.post('/:id', profileCtrl.create)
+router.get('/edit', profileCtrl.edit)
+
+router.patch('/:id', profileCtrl.create)
 
 export {
   router

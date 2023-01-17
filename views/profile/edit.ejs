@@ -1,0 +1,25 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<h1><%= title %></h1>
+
+<% if (!user?.profile.age) { %>
+  <form action="/profile/<%= user?.profile._id %>?_method=PATCH" method="post">
+    <input type="number" name="height" placeholder="Enter Height">
+    <input type="number" name="weight" placeholder="Enter Weight">
+    <input type="number" name="age" placeholder="Enter Age">
+    <select name="sex" >
+      <option value="male">
+        male
+      </option>
+      <option value="female">
+        female
+      </option>
+    </select>
+    <button type="submit">Save</button>
+  </form>
+  <% } %>
+
+
+
+<%- include('../partials/footer') %>
