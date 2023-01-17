@@ -4,8 +4,12 @@
 <h1><%= title %></h1>
 
   
-  <%= Age: profile.age%> 
-  <%= Weight: profile.weight%> 
-  <%= Height:  profile.height%> 
+  <div> Age:<%= profile.age%> </div>
+  <div> Height:<%= profile.height%> </div>
+  <div> Weight:<%= profile.weight%> </div>
+
+<form action="/profile/edit" method="get">
+  <button type="submit">Change Personal Info</button>
+</form>
 
 <%- include('../partials/footer') %>

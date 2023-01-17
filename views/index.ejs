@@ -2,7 +2,7 @@
 <%- include('./partials/nav') %>
 
 <main>
-  <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
+  <h1>Hello, <%= user ? user.profile.name : "Friend" %></h1>
   <% if (user?.profile.avatar) { %>
     <div>
       <img
@@ -12,14 +12,13 @@
       <a href=""></a>
     </div>
   <% } %>
-    
-    <form action="/profile/edit" method="get">
-      <button type="submit">Change Personal Info</button>
-    </form>
-    <form action="/profile/<%= user?.profile._id %> " method="get">
-      <button type="submit">Go to your profile</button>
-    </form>
-    
+    <% if (user) { %>
+      <form action="/profile/<%= user?.profile._id %> " method="get">
+        <button type="submit">Go to your profile</button>
+      </form>
+      <% } else { %>
+        <h2>Log In to Continue</h2>
+      <% } %>
     
 
 </main>

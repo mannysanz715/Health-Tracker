@@ -1,6 +1,17 @@
 import { Profile } from "../models/profile.js";
 import { User } from "../models/user.js";
 
+function index(req, res){
+  Profile.findById(req.params.id)
+  .then(profile =>{
+    res.render('profile/index',{
+      title: 'Your Profile',
+      profile
+    })
+  })
+}
+
+
 function edit(req, res){
   res.render('profile/edit',{
     title: 'Add your info :'
@@ -21,6 +32,7 @@ function createUser(req, res){
 }
 
 export{
+  index,
   edit,
   createUser as create,
 
