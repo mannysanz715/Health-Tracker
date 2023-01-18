@@ -1,11 +1,9 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-
-<% if (user) { %>
 <h1><%= title %></h1>
 
-
+<% if (!user?.profile.age) { %>
   <form action="/profile/<%= user?.profile._id %>?_method=PATCH" method="post">
     <input type="number" name="heightFt" placeholder="Enter Feet">
     <input type="number" name="heightIn" placeholder="Enter Inches">
@@ -21,11 +19,7 @@
     </select>
     <button type="submit">Save</button>
   </form>
-
-  <% } else { %>
-  
-    <h1>Please Log in to Continue</h1>
-
   <% } %>
+  
 
 <%- include('../partials/footer') %>

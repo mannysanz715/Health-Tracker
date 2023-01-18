@@ -1,9 +1,13 @@
+import { Calories } from "../models/calorie.js";
 import { Profile } from "../models/profile.js";
 import { User } from "../models/user.js";
 
 function index(req, res){
   Profile.findById(req.params.id)
+  .populate('calories')
   .then(profile =>{
+
+    console.log(profile)
     res.render('profile/index',{
       title: 'Your Profile',
       profile
@@ -12,8 +16,8 @@ function index(req, res){
 }
 
 
-function edit(req, res){
-  res.render('profile/edit',{
+function newProfile(req, res){
+  res.render('profile/new',{
     title: 'Add your info :'
   })
 }
@@ -44,7 +48,7 @@ function addCalories(req, res){
 
 export{
   index,
-  edit,
+  newProfile as new,
   createUser as create,
   addCalories,
 }

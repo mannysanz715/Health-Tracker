@@ -1,20 +1,39 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
+
+<% if (user) { %>
+ 
+
 <h1>Welcome <%= profile.name %></h1>
 <img src="<%= profile.avatar %> " alt="profile picture">
   
+
+
+<% if (profile.age) {%>
   <div> Age: <%= profile.age%> </div>
   <div> Height: <%= profile.heightFt%>ft <%= profile.heightIn %>in  </div>
-  <div> Weight: <%= profile.weight%> </div>
+  <div> Weight: <%= profile.weight[0]%> </div>
+  <div> Calorie Budget: <%= profile.calories%> </div>
+  
+  <form action="/profile/edit" method="get">
+    <button type="submit">Change Personal Info</button>
+  </form>
+  <% if (!profile.calories) { %>
+    
+    <a href="/calories/edit"> <button type="submit">Add Calorie Budget</button></a>
 
-<form action="/profile/edit" method="get">
-  <button type="submit">Change Personal Info</button>
-</form>
+    <% } %>
+  <% } else { %>
+    
+    <div>Add your data to create a log</div>
+    <a href="/profile/new"><button type="submit"> Add Data</button></a>
 
-<form action="/calories/<% profile._id %> " method="post">
-  <input type="number" name="calorieLimit" placeholder="Calorie Budget">
-  <button type="submit">Add Calorie Budget</button>
-</form>
+  <% } %>
 
+  <% } else { %>
+  
+    <h1>Please Log in to Continue</h1>
+
+  <% } %>
 <%- include('../partials/footer') %>

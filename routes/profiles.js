@@ -4,7 +4,7 @@ import * as profileCtrl from '../controllers/profiles.js'
 
 const router = Router()
 
-router.get('/edit', profileCtrl.edit)
+router.get('/new', profileCtrl.new)
 
 router.get('/:id', profileCtrl.index)
 
