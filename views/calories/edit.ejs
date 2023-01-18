@@ -5,7 +5,7 @@
   <h1><%= title %></h1>
   
   
-  <form action="/calories" method="post">
+  <form action="/profile/calories/<%= user?.profile._id %>?_method=PATCH" method="post">
     <input type="number" name="calorieLimit" placeholder="Calorie Budget">
     <button type="submit">Save</button>
   </form>
