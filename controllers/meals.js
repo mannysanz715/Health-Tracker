@@ -32,7 +32,7 @@ function deleteMeal(req, res){
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next()
-  res.redirect('/meals')
+  res.redirect('/')
 }
 
 export{

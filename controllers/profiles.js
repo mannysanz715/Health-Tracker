@@ -118,9 +118,18 @@ function mealClear(req, res){
   })
 }
 
+function workoutDelete(req, res){
+  Profile.findById(req.params.id)
+  .then(profile =>{
+    profile.workouts.remove(req.params.workoutId)
+    profile.save()
+    res.redirect('/profile/' + profile._id + '/workouts')
+  })
+}
+
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next()
-  res.redirect('/profiles')
+  res.redirect('/')
 }
 
 export{
@@ -136,5 +145,6 @@ export{
   editCalories,
   addWorkouts,
   workoutsIndex,
+  workoutDelete,
   mealClear,
 }
