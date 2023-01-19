@@ -13,6 +13,21 @@ function index(req, res){
   })
 }
 
+function updateWeight(req, res){
+  Profile.findById(req.params.id)
+  .then(profile =>{
+    profile.weight.unshift(req.body.weight)
+    profile.save()
+    res.redirect('/profile/' + profile._id)
+  })
+}
+
+function editWeight(req, res){
+  res.render('profile/newWeight', {
+    title: 'Record a New Weight'
+  })
+}
+
 
 function newProfile(req, res){
   res.render('profile/new',{
@@ -52,6 +67,8 @@ function addCalories(req, res){
 
 export{
   index,
+  editWeight,
+  updateWeight,
   newProfile as new,
   createUser as create,
   addCalories,

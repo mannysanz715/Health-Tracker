@@ -12,11 +12,14 @@
 <% if (profile.age) {%>
   <div> Age: <%= profile.age%> </div>
   <div> Height: <%= profile.heightFt%>ft <%= profile.heightIn %>in  </div>
-  <div> Weight: <%= profile.weight[0]%> </div>
+  <div> Todays Weight: <%= profile.weight[0]%> </div>
   <div> Calorie Budget: <%= profile.calorieLimit%> </div>
   
   <form action="/profile/edit" method="get">
     <button type="submit">Change Personal Info</button>
+  </form>
+  <form action="/profile/editWeight" method="get">
+    <button type="submit">Record New Weight</button>
   </form>
   <% if (!!profile) { %>
     

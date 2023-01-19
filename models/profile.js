@@ -8,8 +8,6 @@ const profileSchema = new Schema({
   heightFt: Number,
   heightIn: Number,
   weight: [Number],
-  caloriesDay: Number,
-  caloriesWeek: Number,
   calorieLimit: Number,
   caloriesBurned: Number,
   age: Number,
