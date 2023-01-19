@@ -13,7 +13,6 @@
   <h1><%= meal.name %> </h1>
   <h3><%= meal.calories %> </h3>
   <% if (user?.profile) { %>
-   
     <form action="/meals/<%=meal._id%>?_method=DELETE" method="post">
       <button type="submit">Delete Meal</button>
     </form>
