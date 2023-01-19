@@ -8,6 +8,12 @@
       <a href="/auth/logout" class="right">
         <button type="submit">Logout</button>
       </a>
+      <a href="/meals">
+        <button type="submit">Meals</button>
+      </a>
+      <a href="/profile/<%= user?.profile._id%>">
+        <button type="submit">Home</button>
+      </a>
     <% } else { %>
       <div 
         id="g_id_onload"

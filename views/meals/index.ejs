@@ -1,0 +1,29 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<h1><%= title %> </h1>
+
+<% if (user?.profile) { %>
+  <a href="/meals/new">
+    <button type="submit">Add New Meal</button>
+  </a>
+  <% } %>
+
+<% meals.forEach(meal => { %>
+  <h1><%= meal.name %> </h1>
+  <h3><%= meal.calories %> </h3>
+  <% if (user?.profile) { %>
+   
+    <form action="/meals/<%=meal._id%>?_method=DELETE" method="post">
+      <button type="submit">Delete Meal</button>
+    </form>
+    <% } %>
+<% }) %>
+
+
+
+
+  
+
+
+<%- include('../partials/footer') %>

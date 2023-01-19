@@ -1,0 +1,18 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<h1><%= title %> </h1>
+
+<form action="/meals" method="post">
+  <input type="text" name="name" placeholder="Meal Name">
+  <input type="number" name="calories" placeholder="Meal Calories">
+  <button type="submit">Add Meal</button>
+</form>
+
+
+
+
+  
+
+
+<%- include('../partials/footer') %>
