@@ -1,14 +1,18 @@
 
 import { Profile } from "../models/profile.js";
-import { User } from "../models/user.js";
+import {Meal} from "../models/meal.js"
 
 function index(req, res){
   Profile.findById(req.params.id)
+  .populate('meals')
   .then(profile =>{
-    console.log(profile)
-    res.render('profile/index',{
-      title: 'Your Profile',
-      profile
+    Meal.find({_id: {$nin: profile.meals}})
+    .then(meals =>{
+      res.render('profile/index',{
+        title: 'Your Profile',
+        profile,
+        meals
+    })
     })
   })
 }
@@ -46,7 +50,6 @@ function createUser(req, res){
   for (let key in req.body) {
     if(req.body[key] === "") delete req.body[key]
   }
-  console.log(req.body)
   Profile.findByIdAndUpdate(req.params.id, req.body, {new: true})
   .then( profile =>{
     res.redirect('/')
@@ -69,6 +72,17 @@ function addCalories(req, res){
   })
 }
 
+function addMeal(req, res){
+  Profile.findById(req.params.id)
+  .then(profile =>{
+    console.log(req.body.meals)
+    profile.meals.push(req.body.meals)
+    profile.save()
+    .then(res.redirect('/profile/' + profile._id))
+  })
+
+}
+
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next()
   res.redirect('/profiles')
@@ -81,7 +95,8 @@ export{
   updateWeight,
   newProfile as new,
   createUser as create,
-  addCalories,
+  addCalories, 
+  addMeal,
   isLoggedIn,
   editCalories,
 }

@@ -12,6 +12,8 @@ router.get('/editWeight', profileCtrl.editWeight)
 
 router.get('/calories/edit', profileCtrl.editCalories)
 
+router.post('/:id/meals', profileCtrl.addMeal)
+
 router.patch('/weight/:id', profileCtrl.updateWeight)
 
 router.get('/:id', profileCtrl.index)

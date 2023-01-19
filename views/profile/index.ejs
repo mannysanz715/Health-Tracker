@@ -21,21 +21,46 @@
   <form action="/profile/editWeight" method="get">
     <button type="submit">Record New Weight</button>
   </form>
+
+  
   <% if (!!profile) { %>
     
     <a href="/profile/calories/edit"> <button type="submit">Add Calorie Budget</button></a>
-
-    <% } %>
-  <% } else { %>
     
-    <div>Add your data to create a log</div>
-    <a href="/profile/new"><button type="submit"> Add Data</button></a>
+    
+    <form action="/profile/<%=profile._id %>/meals" method="post">
 
-  <% } %>
+      <select name="meals">
+        <% meals.forEach(meal => { %>
+        <option value="<%= meal._id %>"><%= meal.name %></option>
+        <% }) %>
+      </select>
+      
+      <button type="submit">Add Meal</button>
+    </form>
 
-  <% } else { %>
-  
-    <h1>Please Log in to Continue</h1>
+    
+      <% if (profile.meals) { %>
+        
+        <% profile.meals.forEach(meal => { %>
+          <div><%= meal.name %> </div>
+          <div><%= meal.calories %> </div>
+        <% }) %>
 
-  <% } %>
-<%- include('../partials/footer') %>
+      <% } %>
+
+      
+    <% } %>
+    <% } else { %>
+      
+      <div>Add your data to create a log</div>
+      <a href="/profile/new"><button type="submit"> Add Data</button></a>
+      
+      <% } %>
+      
+      <% } else { %>
+        
+        <h1>Please Log in to Continue</h1>
+        
+        <% } %>
+        <%- include('../partials/footer') %>
