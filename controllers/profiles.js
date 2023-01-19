@@ -74,7 +74,7 @@ function addCalories(req, res){
 
 function addMeal(req, res){
   Profile.findById(req.params.id)
-  .then(profile =>{
+  .then(profile =>{ 
     console.log(req.body.meals)
     profile.meals.push(req.body.meals)
     profile.save()
