@@ -1,5 +1,4 @@
 import { Meal } from '../models/meal.js'
-import { User } from '../models/user.js'
 
 function index(req, res){
   Meal.find({})

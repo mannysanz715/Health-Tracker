@@ -4,8 +4,6 @@
 
 <% if (user) { %>
 <h1><%= title %></h1>
-
-
   <form action="/profile/<%= user?.profile._id %>?_method=PATCH" method="post">
     <input type="number" name="heightFt" placeholder="Enter Feet">
     <input type="number" name="heightIn" placeholder="Enter Inches">

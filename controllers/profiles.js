@@ -13,6 +13,12 @@ function index(req, res){
   })
 }
 
+function edit(req,res){
+  res.render('profile/edit', {
+    title: 'Change Personal Details'
+  })
+}
+
 function updateWeight(req, res){
   Profile.findById(req.params.id)
   .then(profile =>{
@@ -70,10 +76,12 @@ function isLoggedIn(req, res, next) {
 
 export{
   index,
+  edit,
   editWeight,
   updateWeight,
   newProfile as new,
   createUser as create,
   addCalories,
+  isLoggedIn,
   editCalories,
 }

@@ -6,6 +6,8 @@ const router = Router()
 
 router.get('/new', profileCtrl.new)
 
+router.get('/edit', profileCtrl.edit)
+
 router.get('/editWeight', profileCtrl.editWeight)
 
 router.get('/calories/edit', profileCtrl.editCalories)
