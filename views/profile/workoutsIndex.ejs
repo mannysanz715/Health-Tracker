@@ -1,0 +1,35 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<h1><%= title %> </h1>
+
+<% if (user?.profile) { %>
+  
+  <% profile.workouts.forEach(workout => { %>
+    <div><h3>Workout: <%= workout.name %> </h3></div>
+    <div>Duration: <%= workout.duration %> </div>
+    <% if (workout.heartRateAvg) { %>
+      <div>Average Heart Rate: <%= workout.heartRateAvg %> </div>
+      <% } %>
+    <form action="/profile/<%= user?.profile._id %>?_method=DELTE" method="post">
+      <button type="submit">Delete Workout</button>
+    </form>
+  <% }) %>
+  
+
+  <form action="/profile/<%=user?.profile._id%>/workouts" method="post" autocomplete="off">
+    <input type="text" name="name" required>
+    <input type="number" name="duration" required>
+    <input type="number" name="heartRateAvg">
+    <button type="submit">Add Workout</button>
+  </form>
+  
+<% } %>
+
+
+
+
+  
+
+
+<%- include('../partials/footer') %>

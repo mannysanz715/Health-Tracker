@@ -41,5 +41,4 @@ isLoggedIn,
 newMeal as new,
 create,
 deleteMeal as delete,
-
 }

@@ -3,16 +3,44 @@ import { Profile } from "../models/profile.js";
 import {Meal} from "../models/meal.js"
 
 function index(req, res){
+  let sum = 0
   Profile.findById(req.params.id)
   .populate('meals')
   .then(profile =>{
     Meal.find({_id: {$nin: profile.meals}})
     .then(meals =>{
+      profile.meals.forEach(meal =>{
+        sum += meal.calories
+        return sum
+      })
       res.render('profile/index',{
         title: 'Your Profile',
         profile,
-        meals
+        meals,
+        sum
+      })
     })
+  })
+}
+
+function workoutsIndex(req, res){
+  Profile.findById(req.params.id)
+  .then(profile =>{
+    console.log(profile.workouts)
+    res.render('profile/workoutsIndex', {
+      title: 'Workouts',
+      profile
+    })
+  })
+}
+
+function addWorkouts(req, res){
+  Profile.findById(req.params.id)
+  .then(profile =>{
+    profile.workouts.push(req.body)
+    profile.save()
+    .then(()=>{
+      res.redirect('/profile/'+profile._id+'/workouts')
     })
   })
 }
@@ -37,7 +65,6 @@ function editWeight(req, res){
     title: 'Record a New Weight'
   })
 }
-
 
 function newProfile(req, res){
   res.render('profile/new',{
@@ -80,7 +107,15 @@ function addMeal(req, res){
     profile.save()
     .then(res.redirect('/profile/' + profile._id))
   })
+}
 
+function mealClear(req, res){
+  Profile.findById(req.params.id)
+  .then(profile =>{
+    profile.meals = []
+    profile.save()
+    res.redirect('/profile/' + profile._id)
+  })
 }
 
 function isLoggedIn(req, res, next) {
@@ -99,4 +134,7 @@ export{
   addMeal,
   isLoggedIn,
   editCalories,
+  addWorkouts,
+  workoutsIndex,
+  mealClear,
 }

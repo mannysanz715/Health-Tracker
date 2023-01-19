@@ -14,6 +14,7 @@
   <div> Height: <%= profile.heightFt%>ft <%= profile.heightIn %>in  </div>
   <div> Todays Weight: <%= profile.weight[0]%> </div>
   <div> Calorie Budget: <%= profile.calorieLimit%> </div>
+  <div> Calorie Consumed: <%= sum %> </div>
   
   <form action="/profile/edit" method="get">
     <button type="submit">Change Personal Info</button>
@@ -39,6 +40,7 @@
       <button type="submit">Add Meal</button>
     </form>
 
+
     
       <% if (profile.meals) { %>
         
@@ -47,6 +49,9 @@
           <div><%= meal.calories %> </div>
         <% }) %>
 
+        <form action="/profile/meal/<%= profile._id %>?_method=DELETE" method="post">
+        <button type="submit">Clear Meals</button>
+        </form>
       <% } %>
 
       
