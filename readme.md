@@ -2,7 +2,7 @@
 
 [CLICK HERE TO SEE](https://health-tracker.fly.dev "Health - Tracker Link")
 ---------------------
-![appImg](/assets/Screenshot 2023-01-20 at 10.07.07 AM.png)
+![appImg](/assets/screenshot.png)
 
 
 
