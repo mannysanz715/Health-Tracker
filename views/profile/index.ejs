@@ -50,24 +50,41 @@
       <div> Height: <%= profile.heightFt%>ft <%= profile.heightIn %>in  </div>
       
       <div> Todays Weight: <%= profile.weight[0]%> </div>
-        <form action="/profile/edit" method="get">
-          <button type="submit">Change Personal Info</button>
-        </form>
-      </div>
+      <form action="/profile/edit" method="get">
+        <button type="submit">Change Personal Info</button>
+      </form>
+    </div>
+  </div>
+  <div class="bottom-container">
+
+    <div class="workouts">
+      <h2 class="workout-title">Work Outs</h2>
+      <% profile.workouts.forEach(workout => { %>
+        <div class="workout">
+          <h3><%= workout.name %> </h3>
+          <h5>Duration: <%= workout.duration %> min </h5>
+          <h5>Average Heart Rate: <%= workout.heartRateAvg %> bpm</h5>
+          <form action="/profile/workout/<%= user?.profile._id %>/<%=workout._id%>?_method=DELETE" method="post">
+            <button type="submit">X</button>
+            </form>
+        </div>
+          <% }) %>
+    </div>
+
+    
+    <div class="meals">   
+    <form action="/profile/<%=profile._id %>/meals" method="post">
+      <select name="meals">
+        <% meals.forEach(meal => { %>
+          <option value="<%= meal._id %>"><%= meal.name %></option>
+          <% }) %>
+        </select>
+        
+        <button type="submit">Add Meal</button>
+      </form>
       
-      <form action="/profile/<%=profile._id %>/meals" method="post">
-        <select name="meals">
-          <% meals.forEach(meal => { %>
-            <option value="<%= meal._id %>"><%= meal.name %></option>
-            <% }) %>
-          </select>
-          
-          <button type="submit">Add Meal</button>
-        </form>
-        
-        
-        
-        <div class="meals">   
+      
+      
         
         
         
@@ -78,14 +95,15 @@
             <div><%= meal.calories %> </div>
             <% }) %>
           </div>    
-            
-            <form action="/profile/meal/<%= profile._id %>?_method=DELETE" method="post">
-              <button type="submit">Clear Meals</button>
-            </form>
-            <% } %>
-            
-            
-            <% } %>
+          
+          <form action="/profile/meal/<%= profile._id %>?_method=DELETE" method="post">
+            <button type="submit">Clear Meals</button>
+          </form>
+          <% } %>
+        </div>
+          
+          
+          <% } %>
           <% } else { %>
             
             <div>Add your data to create a log</div>
@@ -98,6 +116,5 @@
               <h1>Please Log in to Continue</h1>
               
               <% } %>
-            </div>
 </div>
             <%- include('../partials/footer') %>

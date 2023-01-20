@@ -209,12 +209,40 @@ img{
   font-size: 3rem;
 }
 
-    /*? Main -- MEALS */
+    /*? Bottom Container */
+.bottom-container{
+  display: flex;
+  flex-direction: row;
+}
 
-    .meals{
-      display: flex;
-      flex-direction: row;
-      border: 2px red solid;
-    }
+.workout-title{
+  background-color: #0C40C3;
+  text-align: center;
+  width: 30rem;
+  color: white;
+  margin: 15px auto;
+  padding: 3px 0;
+}
+
+.workouts{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 50vw;
+  margin-top: 30px;
+}
+
+.workout{
+  background-color: #6E90ED;
+  width: 27rem;
+  margin: 5px auto;
+  color: white;
+  padding: 5px;
+}
+
+.meals{
+  display: flex;
+  border: 2px red solid;
+}
 
     

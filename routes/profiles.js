@@ -26,9 +26,11 @@ router.patch('/calories/:id', profileCtrl.isLoggedIn, profileCtrl.addCalories)
 
 router.patch('/:id', profileCtrl.isLoggedIn, profileCtrl.create)
 
+router.delete('/meal/:id', profileCtrl.mealClear)
+
 router.delete('/workout/:id/:workoutId', profileCtrl.workoutDelete)
 
-router.delete('/meal/:id', profileCtrl.mealClear)
+
 
 export {
   router

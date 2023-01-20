@@ -123,7 +123,7 @@ function workoutDelete(req, res){
   .then(profile =>{
     profile.workouts.remove(req.params.workoutId)
     profile.save()
-    res.redirect('/profile/' + profile._id + '/workouts')
+    res.redirect('/profile/' + profile._id)
   })
 }
 
