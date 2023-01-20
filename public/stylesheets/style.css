@@ -201,6 +201,7 @@ img{
   align-items: center;
   justify-content: center;
   width: 20rem;
+  margin: 0 auto;
 }
 
 .remaining{
