@@ -128,9 +128,12 @@ img{
 
 .daily-summary{
   width: 72vw;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  display: grid;
+  grid-template-areas: 'daily daily daily'
+              'remaining button button'
+              'empty budget consumed';
+  grid-template-rows: .2fr .2fr 1.5fr;
+  gap: 20px;
   padding: 0;
   margin: 0;
 }
@@ -140,16 +143,19 @@ img{
   color: white;
   padding-left: 12px;
   padding-top: 3px;
-  width: 100vw;
+  width: 73vw;
   background-color: #1E377A;
   height: 2.5rem;
+  grid-area: daily;
+
 }
 
 .buttons{
+  grid-area: button ;
   display: flex;
   justify-content: space-evenly;
-  width: 45vw;
   flex-wrap: wrap;
+  height: 1rem;
 }
 
 .buttons > form > button{
@@ -169,7 +175,7 @@ img{
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  padding: 30px 50px 60px 15px;
+  grid-area: budget;
 }
 
 .calories-consumed{
@@ -177,7 +183,7 @@ img{
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  padding: 30px 30px 30px 50px;
+  grid-area: consumed;
 }
 
 .calories-remaining{
@@ -187,11 +193,9 @@ img{
 
 .calories-remaining{
   display: flex;
-  margin: -10px 0;
   flex-direction: column;
   align-items: center;
   width: 20rem;
-  padding-bottom: 100px;
 }
 
 .remaining{
