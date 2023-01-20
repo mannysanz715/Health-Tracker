@@ -4,7 +4,7 @@
 <h1 class="new-meal-title"><%= title %> </h1>
 
 <div class="new-meal-container">
-<form class="workout-container" action="/meals" method="post">
+<form class="workout-container" action="/meals" method="post" autocomplete="off">
     <input type="text" name="name" placeholder="Meal Name" required>
     <input type="number" name="calories" placeholder="Meal Calories">
     <input type="text" name="owner" hidden value="<%= user?.profile._id %>">
