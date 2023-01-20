@@ -15,9 +15,11 @@
             <h1><%= meal.name %> </h1>
             <h3>Kcals: <%= meal.calories %> </h3>
             <% if (user?.profile) { %>
-              <form action="/meals/<%=meal._id%>?_method=DELETE" method="post">
-                <button type="submit">X</button>
-              </form>
+              <% if (meal.owner == (user?.profile._id)) { %>
+                <form action="/meals/<%=meal._id%>?_method=DELETE" method="post">
+                  <button type="submit">X</button>
+                </form>
+                <% } %>
             </div>
               <% } %>
             <% }) %>  

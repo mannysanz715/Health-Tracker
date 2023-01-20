@@ -7,6 +7,7 @@
 <form class="workout-container" action="/meals" method="post">
     <input type="text" name="name" placeholder="Meal Name" required>
     <input type="number" name="calories" placeholder="Meal Calories">
+    <input type="text" name="owner" hidden value="<%= user?.profile._id %>">
     <button class="button-data"type="submit">Add Meal</button>
   </form>
 </div>
