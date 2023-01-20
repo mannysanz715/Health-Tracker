@@ -1,10 +1,10 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<h1><%= title %></h1>
+<h1 class="new-meal-title"><%= title %></h1>
 
 <% if (!user?.profile.age) { %>
-  <form action="/profile/<%= user?.profile._id %>?_method=PATCH" method="post">
+  <form class="workout-container" action="/profile/<%= user?.profile._id %>?_method=PATCH" method="post">
     <input type="number" name="heightFt" placeholder="Enter Feet">
     <input type="number" name="heightIn" placeholder="Enter Inches">
     <input type="number" name="weight" placeholder="Enter Weight">

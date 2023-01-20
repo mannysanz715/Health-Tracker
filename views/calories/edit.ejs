@@ -2,13 +2,14 @@
 <%- include('../partials/nav') %>
 
 <% if (user) { %>
-  <h1><%= title %></h1>
+  <h1 class="new-meal-title"><%= title %></h1>
   
   
-  <form action="/profile/calories/<%= user?.profile._id %>?_method=PATCH" method="post">
+  <form class="no-data" action="/profile/calories/<%= user?.profile._id %>?_method=PATCH" method="post">
     <input type="number" name="calorieLimit" placeholder="Calorie Budget">
-    <button type="submit">Save</button>
+    <button class="button-data" type="submit">Save</button>
   </form>
+
   <% } else { %>
   
     <h1>Please Log in to Continue</h1>

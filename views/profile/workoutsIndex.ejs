@@ -6,11 +6,11 @@
 <% if (user?.profile) { %>
   <div class="workout-container">
 
-    <form class="workout-form" action="/profile/<%=user?.profile._id%>/workouts" method="post" autocomplete="off">
+    <form class="workout-container" action="/profile/<%=user?.profile._id%>/workouts" method="post" autocomplete="off">
       <input type="text" name="name" placeholder="Name" required>
       <input type="number" placeholder="Duration" name="duration" required>
       <input type="number" placeholder="Average Heart Rate" name="heartRateAvg">
-      <button type="submit">Add Workout</button>
+      <button  class="button-data" type="submit">Add Workout</button>
     </form>
     
   </div>

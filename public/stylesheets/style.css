@@ -361,6 +361,7 @@ border-radius: 5px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10px;
   }
 
   .index-button{
@@ -373,3 +374,36 @@ border-radius: 5px;
     width: 16vw;
     text-align: center; 
   }
+
+      /* ? Personal Info */
+
+.no-data{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.no-data > a > button {
+  border-radius: 5px;
+  background-color: #0C40C3;
+  align-items: center;
+  margin: 10px auto;
+  padding: 5px;
+  color: white;
+  width: 16vw;
+  text-align: center; 
+}
+
+.button-data {
+  border-radius: 5px;
+  background-color: #0C40C3;
+  align-items: center;
+  margin: 10px auto;
+  padding: 5px;
+  color: white;
+  width: 10vw;
+  text-align: center; 
+}
+

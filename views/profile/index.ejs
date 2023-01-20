@@ -111,13 +111,18 @@
           <% } %>
           <% } else { %>
             
-            <div>Add your data to create a log</div>
-            <a href="/profile/new"><button type="submit"> Add Data</button></a>
-            
-            <% } %>
-            
-            <% } else { %>
+            <div class="no-data">
+              <h1>
+                Add your data to create a log
+              </h1>
+
+              <a href="/profile/new"><button type="submit"> Add Data</button></a>
               
+            </div>
+              <% } %>
+              
+              <% } else { %>
+                
               <h1>Please Log in to Continue</h1>
               
               <% } %>
