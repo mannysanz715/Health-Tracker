@@ -9,46 +9,65 @@
     <img src="<%= profile.avatar %> " alt="profile picture">
     <h1><%= profile.name %></h1>
     
+  </div>
     <% if (profile.age) {%>
+    
+    <div class="daily-summary">
+      <h3 class="ds-title">Daily Summary</h3>
+
+  <div class="calories-remaining">
+    <h3 class="remaining"><%= profile.calorieLimit - sum %> </h3>
+    <h3>Calories Remaining</h3>
+  </div>
+  
+  <div class="buttons">
+    
+    <form action="/profile/editWeight" method="get">
+      <button type="submit">Record New Weight</button>
+    </form>
+    
+    <% if (!!profile) { %>   
+      <form action="/profile/calories/edit" method="get">
+        <button type="submit">Add Calorie Budget</button>
+      </form>
+      
+      
+      
+      <div class="calorie-limit"> 
+        <h3><%= profile.calorieLimit%> </h3>
+        <h3>Calorie Budget</h3>
+      </div>
+      <div class="calories-consumed">
+        <h3><%= sum %> </h3>
+        <h3> Calorie Consumed</h3> 
+      </div>
+    </div>
+      
+    </div>
+    
+    <div class="user-card">
       <div> Age: <%= profile.age%> </div>
       <div> Height: <%= profile.heightFt%>ft <%= profile.heightIn %>in  </div>
       
       <div> Todays Weight: <%= profile.weight[0]%> </div>
-      <form action="/profile/edit" method="get">
-        <button type="submit">Change Personal Info</button>
-      </form>
-    </div>
-    
-    <div class="daily-summary">
-
-      <div> Calorie Budget: <%= profile.calorieLimit%> </div>
-      <div> Calorie Consumed: <%= sum %> </div>
+        <form action="/profile/edit" method="get">
+          <button type="submit">Change Personal Info</button>
+        </form>
+      </div>
       
-  
-      <form action="/profile/editWeight" method="get">
-        <button type="submit">Record New Weight</button>
-      </form>
-      
-      <% if (!!profile) { %>    
-        <a href="/profile/calories/edit"> <button type="submit">Add Calorie Budget</button></a>
-        
-        
-        
-        
-        
-        <form action="/profile/<%=profile._id %>/meals" method="post">
-          <select name="meals">
-            <% meals.forEach(meal => { %>
-              <option value="<%= meal._id %>"><%= meal.name %></option>
-              <% }) %>
-            </select>
-            
-            <button type="submit">Add Meal</button>
-          </form>
+      <form action="/profile/<%=profile._id %>/meals" method="post">
+        <select name="meals">
+          <% meals.forEach(meal => { %>
+            <option value="<%= meal._id %>"><%= meal.name %></option>
+            <% }) %>
+          </select>
           
-          
-          
-        </div>
+          <button type="submit">Add Meal</button>
+        </form>
+        
+        
+        
+        <div class="meals">   
         
         
         
@@ -58,12 +77,13 @@
             <div><%= meal.name %> </div>
             <div><%= meal.calories %> </div>
             <% }) %>
+          </div>    
             
             <form action="/profile/meal/<%= profile._id %>?_method=DELETE" method="post">
               <button type="submit">Clear Meals</button>
             </form>
             <% } %>
-
+            
             
             <% } %>
           <% } else { %>

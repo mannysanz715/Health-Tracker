@@ -47,6 +47,7 @@ nav {
 
 nav > div > a > button , nav > a > button{
   background-color: #0C40C3;
+  border: 5px solid white;
   color: white;
   text-align: center;
   font-size: 1.4rem;
@@ -61,8 +62,8 @@ nav > div > a > button:hover , nav > a > button:hover{
 }
 
 
-            /*? Main  */
-
+            /*? Main -- User Info */
+            
 
 main {
   display: flex;
@@ -75,6 +76,7 @@ main {
   display: flex;
   flex-direction: row;
   height: 50vh;
+  flex-wrap: wrap;
 }
 
 img{
@@ -82,19 +84,127 @@ img{
   border-radius: 50%;
   margin: 0 auto;
   margin-top: 2rem;
+  border: 3px black solid;
 }
 .user-info{
   display: flex;
   flex-direction: column;
-  border: 1px red solid;
   width: 25vw;
+  border-right: 2px black solid;
 }
 
 .user-info > h1{
   text-align: center;
 }
 
-.daily-summary{
-  width: 75vw;
-  border: 1px red solid;
+.user-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: black;
+  font-size: 1rem;
+  border: 2px black solid;
+  padding: 4px 15px;
+  background-color: #AEC0FF;
+  border-radius: 5px;
+  width: 25vw;
 }
+
+.user-card > form > button {
+  background-color: #6E90ED;
+  border: 1px black solid;
+  border-radius: 5px;
+}
+.user-card > form > button:hover {
+  background-color: #829adc;
+
+}
+
+
+    /*? Main -- Daily Summaray */
+
+
+.daily-summary{
+  width: 72vw;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.ds-title{
+  margin: 10px 20px 0 20px;
+  color: white;
+  padding-left: 12px;
+  padding-top: 3px;
+  width: 100vw;
+  background-color: #1E377A;
+  height: 2.5rem;
+}
+
+.buttons{
+  display: flex;
+  justify-content: space-evenly;
+  width: 45vw;
+  flex-wrap: wrap;
+}
+
+.buttons > form > button{
+  color: white;
+  background-color: #0C40C3;
+  height: 3rem;
+  border-radius: 15px;
+  border: 2px solid black;
+  width: 20rem;
+}
+.buttons > form > button:hover{
+  background-color: #3a58a2;
+}
+
+.calorie-limit{
+  display:flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 30px 50px 60px 15px;
+}
+
+.calories-consumed{
+  display:flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 30px 30px 30px 50px;
+}
+
+.calories-remaining{
+  margin: 0;
+  padding: 0;
+}
+
+.calories-remaining{
+  display: flex;
+  margin: -10px 0;
+  flex-direction: column;
+  align-items: center;
+  width: 20rem;
+  padding-bottom: 100px;
+}
+
+.remaining{
+  color: green;
+  font-size: 3rem;
+}
+
+    /*? Main -- MEALS */
+
+    .meals{
+      display: flex;
+      flex-direction: row;
+      border: 2px red solid;
+    }
+
+    
