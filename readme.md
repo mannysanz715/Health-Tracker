@@ -2,7 +2,7 @@
 
 [CLICK HERE TO SEE](https://health-tracker.fly.dev "Health - Tracker Link")
 ---------------------
-![appImg](/assets/screenshot.png)
+![appImg](./public/assets/screenshot.png)
 
 
 
