@@ -3,69 +3,81 @@
 
 
 <% if (user) { %>
-
-<h1>Welcome <%= profile.name %></h1>
-<img src="<%= profile.avatar %> " alt="profile picture">
+<div class="main-container">
   
+  <div class="user-info">
+    <img src="<%= profile.avatar %> " alt="profile picture">
+    <h1><%= profile.name %></h1>
+    
+    <% if (profile.age) {%>
+      <div> Age: <%= profile.age%> </div>
+      <div> Height: <%= profile.heightFt%>ft <%= profile.heightIn %>in  </div>
+      
+      <div> Todays Weight: <%= profile.weight[0]%> </div>
+      <form action="/profile/edit" method="get">
+        <button type="submit">Change Personal Info</button>
+      </form>
+    </div>
+    
+    <div class="daily-summary">
 
-
-<% if (profile.age) {%>
-  <div> Age: <%= profile.age%> </div>
-  <div> Height: <%= profile.heightFt%>ft <%= profile.heightIn %>in  </div>
-  <div> Todays Weight: <%= profile.weight[0]%> </div>
-  <div> Calorie Budget: <%= profile.calorieLimit%> </div>
-  <div> Calorie Consumed: <%= sum %> </div>
+      <div> Calorie Budget: <%= profile.calorieLimit%> </div>
+      <div> Calorie Consumed: <%= sum %> </div>
+      
   
-  <form action="/profile/edit" method="get">
-    <button type="submit">Change Personal Info</button>
-  </form>
-  <form action="/profile/editWeight" method="get">
-    <button type="submit">Record New Weight</button>
-  </form>
-
-  
-  <% if (!!profile) { %>
-    
-    <a href="/profile/calories/edit"> <button type="submit">Add Calorie Budget</button></a>
-    
-    
-    <form action="/profile/<%=profile._id %>/meals" method="post">
-
-      <select name="meals">
-        <% meals.forEach(meal => { %>
-        <option value="<%= meal._id %>"><%= meal.name %></option>
-        <% }) %>
-      </select>
+      <form action="/profile/editWeight" method="get">
+        <button type="submit">Record New Weight</button>
+      </form>
       
-      <button type="submit">Add Meal</button>
-    </form>
-
-
-    
-      <% if (profile.meals) { %>
+      <% if (!!profile) { %>    
+        <a href="/profile/calories/edit"> <button type="submit">Add Calorie Budget</button></a>
         
-        <% profile.meals.forEach(meal => { %>
-          <div><%= meal.name %> </div>
-          <div><%= meal.calories %> </div>
-        <% }) %>
-
-        <form action="/profile/meal/<%= profile._id %>?_method=DELETE" method="post">
-        <button type="submit">Clear Meals</button>
-        </form>
-      <% } %>
-
-      
-    <% } %>
-    <% } else { %>
-      
-      <div>Add your data to create a log</div>
-      <a href="/profile/new"><button type="submit"> Add Data</button></a>
-      
-      <% } %>
-      
-      <% } else { %>
         
-        <h1>Please Log in to Continue</h1>
         
-        <% } %>
-        <%- include('../partials/footer') %>
+        
+        
+        <form action="/profile/<%=profile._id %>/meals" method="post">
+          <select name="meals">
+            <% meals.forEach(meal => { %>
+              <option value="<%= meal._id %>"><%= meal.name %></option>
+              <% }) %>
+            </select>
+            
+            <button type="submit">Add Meal</button>
+          </form>
+          
+          
+          
+        </div>
+        
+        
+        
+        <% if (profile.meals) { %>
+          
+          <% profile.meals.forEach(meal => { %>
+            <div><%= meal.name %> </div>
+            <div><%= meal.calories %> </div>
+            <% }) %>
+            
+            <form action="/profile/meal/<%= profile._id %>?_method=DELETE" method="post">
+              <button type="submit">Clear Meals</button>
+            </form>
+            <% } %>
+
+            
+            <% } %>
+          <% } else { %>
+            
+            <div>Add your data to create a log</div>
+            <a href="/profile/new"><button type="submit"> Add Data</button></a>
+            
+            <% } %>
+            
+            <% } else { %>
+              
+              <h1>Please Log in to Continue</h1>
+              
+              <% } %>
+            </div>
+</div>
+            <%- include('../partials/footer') %>

@@ -12,22 +12,57 @@ html {
 }
 
 body {
-  background-color: #1a1a1a;
-  color: #f6f6f6;
+  background-color: #FFFFFF;
+  color: black;
   /* Use a system font, if none are available use any found sans-sarif font */
   font-family: system-ui, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 
     'Helvetica Neue', sans-serif;
   margin: 0;
 }
 
+
+          /*? NAV BAR */
+
+
 nav {
-  background-color: #f6f6f6;
+  background-color: #1E377A;
   color: #1a1a1a;
   display: flex;
   align-items: center;
   padding: 10px;
   min-height: 60px;
+  height: 90px;
 }
+
+
+.left{
+  display: flex;
+  width: 50vw;
+  justify-content: space-between;
+}
+
+.right {
+  margin-left: auto;
+}
+
+nav > div > a > button , nav > a > button{
+  background-color: #0C40C3;
+  color: white;
+  text-align: center;
+  font-size: 1.4rem;
+  border: none;
+  width: 8rem;
+  height: 3rem;
+  border-radius: 40px;
+}
+
+nav > div > a > button:hover , nav > a > button:hover{
+  background-color: #3a58a2;
+}
+
+
+            /*? Main  */
+
 
 main {
   display: flex;
@@ -36,6 +71,30 @@ main {
   flex-direction: column;
 }
 
-.right {
-  margin-left: auto;
+.main-container{
+  display: flex;
+  flex-direction: row;
+  height: 50vh;
+}
+
+img{
+  width: 15vw;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+.user-info{
+  display: flex;
+  flex-direction: column;
+  border: 1px red solid;
+  width: 25vw;
+}
+
+.user-info > h1{
+  text-align: center;
+}
+
+.daily-summary{
+  width: 75vw;
+  border: 1px red solid;
 }
