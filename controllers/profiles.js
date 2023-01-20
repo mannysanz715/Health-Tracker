@@ -40,7 +40,7 @@ function addWorkouts(req, res){
     profile.workouts.push(req.body)
     profile.save()
     .then(()=>{
-      res.redirect('/profile/'+profile._id+'/workouts')
+      res.redirect('/profile/'+profile._id)
     })
   })
 }

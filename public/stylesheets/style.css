@@ -343,3 +343,33 @@ border-radius: 5px;
   align-items: center;
   justify-content: center;
 }
+
+.workouts-title{
+  border-radius: 5px;
+    background-color: #0C40C3;
+    align-items: center;
+    margin: 10px auto;
+    padding: 5px;
+    color: white;
+    width: 26vw;
+    text-align: center;
+  }
+
+
+  .workout-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .index-button{
+    border-radius: 5px;
+    background-color: #0C40C3;
+    align-items: center;
+    margin: 10px auto;
+    padding: 5px;
+    color: white;
+    width: 16vw;
+    text-align: center; 
+  }
