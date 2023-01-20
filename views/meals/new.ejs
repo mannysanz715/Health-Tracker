@@ -1,14 +1,16 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<h1><%= title %> </h1>
+<h1 class="new-meal-title"><%= title %> </h1>
 
+<div class="new-meal-container">
 <form action="/meals" method="post">
-  <input type="text" name="name" placeholder="Meal Name">
-  <input type="number" name="calories" placeholder="Meal Calories">
-  <button type="submit">Add Meal</button>
-</form>
-
+    <input type="text" name="name" placeholder="Meal Name">
+    <input type="number" name="calories" placeholder="Meal Calories">
+    <button type="submit">Add Meal</button>
+  </form>
+</div>
+  
 
 
 

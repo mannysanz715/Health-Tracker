@@ -73,15 +73,21 @@
 
     
     <div class="meals">   
-    <form action="/profile/<%=profile._id %>/meals" method="post">
-      <select name="meals">
-        <% meals.forEach(meal => { %>
-          <option value="<%= meal._id %>"><%= meal.name %></option>
-          <% }) %>
-        </select>
-        
-        <button type="submit">Add Meal</button>
-      </form>
+      <div class="meal-button">
+
+        <form action="/profile/<%=profile._id %>/meals" method="post">
+          <select name="meals">
+            <% meals.forEach(meal => { %>
+              <option value="<%= meal._id %>"><%= meal.name %></option>
+              <% }) %>
+            </select>
+            
+            <button type="submit"><h5>Add Meal</h5></button>
+          </form>
+          <form action="/profile/meal/<%= profile._id %>?_method=DELETE" method="post">
+            <button type="submit"><h5>Clear Meals</h5></button>
+          </form>
+        </div>
       
       
       
@@ -91,14 +97,13 @@
         <% if (profile.meals) { %>
           
           <% profile.meals.forEach(meal => { %>
-            <div><%= meal.name %> </div>
-            <div><%= meal.calories %> </div>
-            <% }) %>
-          </div>    
+            <div class="meal-container">
+              <div class="meal-name"><%= meal.name %> </div>
+              <div class="meal-calorie">Kcals: <%= meal.calories %> </div>
+            </div>    
+              <% }) %>
+          </div>
           
-          <form action="/profile/meal/<%= profile._id %>?_method=DELETE" method="post">
-            <button type="submit">Clear Meals</button>
-          </form>
           <% } %>
         </div>
           
