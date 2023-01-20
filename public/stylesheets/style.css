@@ -131,9 +131,9 @@ img{
   display: grid;
   grid-template-areas: 'daily daily daily'
               'remaining button button'
-              'empty budget consumed';
+              'remaining budget consumed';
   grid-template-rows: .2fr .2fr 1.5fr;
-  gap: 20px;
+  grid-gap: 20px;
   padding: 0;
   margin: 0;
 }
@@ -156,6 +156,7 @@ img{
   justify-content: space-evenly;
   flex-wrap: wrap;
   height: 1rem;
+  margin-bottom: 20px;
 }
 
 .buttons > form > button{
@@ -165,6 +166,7 @@ img{
   border-radius: 15px;
   border: 2px solid black;
   width: 20rem;
+
 }
 .buttons > form > button:hover{
   background-color: #3a58a2;
@@ -173,28 +175,31 @@ img{
 .calorie-limit{
   display:flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   grid-area: budget;
+  text-align: center;
 }
 
 .calories-consumed{
   display:flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   grid-area: consumed;
 }
 
 .calories-remaining{
-  margin: 0;
-  padding: 0;
+  padding: 2px;
+  grid-area: remaining;
+  margin-right: 3px;
 }
 
 .calories-remaining{
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 20rem;
 }
 

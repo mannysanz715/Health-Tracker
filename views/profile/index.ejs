@@ -15,7 +15,7 @@
     <div class="daily-summary">
       <h3 class="ds-title">Daily Summary</h3>
 
-  <div class="calories-remaining">
+  <div class="calories-remaining ">
     <h3 class="remaining"><%= profile.calorieLimit - sum %> </h3>
     <h3>Calories Remaining</h3>
   </div>
@@ -23,22 +23,22 @@
   <div class="buttons">
     
     <form action="/profile/editWeight" method="get">
-      <button type="submit">Record New Weight</button>
+      <button type="submit" class="shadow">Record New Weight</button>
     </form>
     
     <% if (!!profile) { %>   
       <form action="/profile/calories/edit" method="get">
-        <button type="submit">Add Calorie Budget</button>
+        <button type="submit" class="shadow">Add Calorie Budget</button>
       </form>
       
     </div>
       
       
-      <div class="calorie-limit"> 
+      <div class="calorie-limit shadow"> 
         <h3><%= profile.calorieLimit%> </h3>
         <h3>Calorie Budget</h3>
       </div>
-      <div class="calories-consumed">
+      <div class="calories-consumed shadow">
         <h3><%= sum %> </h3>
         <h3> Calorie Consumed</h3> 
       </div>
